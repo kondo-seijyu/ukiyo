@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ ok: true });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.error("Mail error:", err);
     return NextResponse.json({ error: "送信中に問題が発生しました。" }, { status: 500 });
