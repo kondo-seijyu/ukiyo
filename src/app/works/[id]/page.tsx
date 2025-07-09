@@ -3,12 +3,6 @@ import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
 export default function WorkDetail({ params }: { params: { id: string } }) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
