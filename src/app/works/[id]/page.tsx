@@ -1,21 +1,21 @@
-// src/app/works/[id]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-// ✅ 型の明示と generateStaticParams の定義
 type Props = {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 };
 
 export function generateStaticParams() {
-  return works.map((w) => ({
-    id: w.id,
+  return works.map((work) => ({
+    id: work.id,
   }));
 }
 
-export default function WorkDetail({ params }: Props) {
+export default async function WorkDetail({ params }: Props) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
