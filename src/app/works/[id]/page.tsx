@@ -9,7 +9,7 @@ type PageProps = {
   };
 };
 
-export default function WorkDetail({ params }: PageProps) {
+export default function WorkDetail({ params }: { params: { id: string } }) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
