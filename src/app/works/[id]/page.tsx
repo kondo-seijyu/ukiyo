@@ -1,9 +1,21 @@
+// src/app/works/[id]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-export default function WorkDetail({ params }: { params: { id: string } }) {
+// ✅ 型の明示と generateStaticParams の定義
+type Props = {
+  params: { id: string };
+};
+
+export function generateStaticParams() {
+  return works.map((w) => ({
+    id: w.id,
+  }));
+}
+
+export default function WorkDetail({ params }: Props) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
@@ -61,8 +73,4 @@ export default function WorkDetail({ params }: { params: { id: string } }) {
       </div>
     </section>
   );
-}
-
-export async function generateStaticParams() {
-  return works.map((w) => ({ id: w.id }));
 }
