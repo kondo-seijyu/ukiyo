@@ -3,13 +3,13 @@ import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-type Props = {
+type PageProps = {
   params: {
     id: string;
   };
 };
 
-export default function WorkDetail({ params }: Props) {
+export default function WorkDetail({ params }: PageProps) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
@@ -41,7 +41,7 @@ export default function WorkDetail({ params }: Props) {
       </div>
 
       {work.content && (
-        <div className="prose dark:prose-invert mb-10 max-w-none">
+        <div className="prose dark:prose-invert mb-10 max-w-none whitespace-pre-wrap">
           {work.content}
         </div>
       )}
