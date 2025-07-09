@@ -3,19 +3,8 @@ import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-export function generateStaticParams() {
-  return works.map((work) => ({
-    id: work.id,
-  }));
-}
-
-export default async function WorkDetail({ params }: Props) {
+// ✅ 型アノテーション外す or `any` 明示
+export default async function WorkDetail({ params }: { params: { id: string } }) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
