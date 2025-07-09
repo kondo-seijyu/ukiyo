@@ -27,7 +27,7 @@ export const works = [
     description: " Next.js × TypeScript のモダン技術で構成され、React Hooks + fetch による高速レスポンス、NodeMailer によるフォーム連携など、Vercel 上で軽快な体験を実現。",
     image: "/work/work3.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Fremer Motion","NudeMailer","React Hools + fetch","Vercel"],
-    url: "https://ippitsu.vercel.app",
+    url: "https://ukiyo-reflection.vercel.app/",
     content: `
   「UKIYO」は、静と動のバランスが生み出す余白の美をテーマにしたポートフォリオサイトです。
   Framer Motion による滑らかなアニメーションと、Tailwind CSS で設計されたシンプルで洗練された UI によって、視線誘導と心地よいリズムを演出します。
