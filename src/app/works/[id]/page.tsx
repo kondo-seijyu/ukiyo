@@ -35,7 +35,7 @@ export default function WorkDetail({ params }: { params: { id: string } }) {
       </div>
 
       {work.content && (
-        <div className="prose dark:prose-invert mb-10 max-w-none whitespace-pre-wrap">
+        <div className="prose dark:prose-invert mb-10 max-w-none">
           {work.content}
         </div>
       )}
@@ -61,4 +61,8 @@ export default function WorkDetail({ params }: { params: { id: string } }) {
       </div>
     </section>
   );
+}
+
+export async function generateStaticParams() {
+  return works.map((w) => ({ id: w.id }));
 }
