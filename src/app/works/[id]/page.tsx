@@ -3,8 +3,13 @@ import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-export default function WorkDetail({ params }: { params: { id: string } }) {
-  const work = works.find((w) => w.id === params.id);
+interface WorkDetailProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function WorkDetail({ params }: WorkDetailProps) {
+  const { id } = await params;
+  const work = works.find((w) => w.id === id);
   if (!work) return notFound();
 
   return (
