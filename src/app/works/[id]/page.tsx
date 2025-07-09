@@ -3,8 +3,13 @@ import Image from "next/image";
 import { works } from "@/data/works";
 import Link from "next/link";
 
-// ✅ 型アノテーション外す or `any` 明示
-export default async function WorkDetail({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function WorkDetail({ params }: PageProps) {
   const work = works.find((w) => w.id === params.id);
   if (!work) return notFound();
 
